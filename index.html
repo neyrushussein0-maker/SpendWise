@@ -1,283 +1,182 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta name="description" content="SpendWise personal finance dashboard">
     <title>SpendWise Dashboard</title>
-
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
-
 <body>
-
     <div class="dashboard">
-
-        <!-- Sidebar -->
         <aside class="sidebar">
-
             <div class="logo">
                 <h2>SpendWise</h2>
                 <p>Smart Money Management</p>
             </div>
 
-            <nav class="navigation">
-
-                <a href="#" class="nav-item active">
-                    <span>📊</span>
-                    Dashboard
-                </a>
-
-                <a href="#" class="nav-item">
-                    <span>💳</span>
-                    Expenses
-                </a>
-
-                <a href="#" class="nav-item">
-                    <span>💰</span>
-                    Savings
-                </a>
-
-                <a href="#" class="nav-item">
-                    <span>📈</span>
-                    Reports
-                </a>
-
-                <a href="#" class="nav-item">
-                    <span>⚙️</span>
-                    Settings
-                </a>
-
+            <nav class="navigation" aria-label="Main navigation">
+                <a href="#dashboard" class="nav-item active">📊 Dashboard</a>
+                <a href="#expenses" class="nav-item">💳 Expenses</a>
+                <a href="#savings" class="nav-item">💰 Savings</a>
+                <a href="#activity" class="nav-item">📈 Reports</a>
             </nav>
-
         </aside>
 
-
-        <!-- Main Content -->
-        <main class="main-content">
-
-            <!-- Header -->
+        <main class="main-content" id="dashboard">
             <header class="header">
-
                 <div>
                     <h1>Dashboard</h1>
                     <p>Welcome back! Here's your spending overview.</p>
                 </div>
-
                 <div class="profile">
-                    <div class="profile-icon">NH</div>
-
+                    <div class="profile-icon">SW</div>
                     <div>
-                        <strong>Neyrus Hussein</strong>
+                        <strong>SpendWise User</strong>
                         <small>Personal Account</small>
                     </div>
                 </div>
-
             </header>
 
-
-            <!-- Dashboard Cards -->
             <section class="dashboard-section">
-
                 <div class="section-heading">
-                    <div>
-                        <h2>Spending Categories</h2>
-                        <p>Your financial activity this month</p>
-                    </div>
+                    <h2>Spending Categories</h2>
+                    <p>Your financial activity this month</p>
                 </div>
-
 
                 <div class="cards">
-
-                    <!-- Food -->
-                    <article class="card" tabindex="0">
-
-                        <div class="card-top">
-                            <div class="card-icon">🍽️</div>
-                            <span class="status">On Track</span>
-                        </div>
-
-                        <div class="card-content">
-                            <h3>Food</h3>
-                            <p class="amount">KSh 8,500</p>
-                            <p>Spent this month</p>
-                        </div>
-
-                        <div class="card-footer">
-                            <span>Budget: KSh 12,000</span>
-                            <strong>71%</strong>
-                        </div>
-
+                    <article class="card">
+                        <div class="card-top"><span class="card-icon">🍽️</span><span class="status">Food</span></div>
+                        <h3>Food</h3>
+                        <p class="amount" id="food-total">KSh 0</p>
+                        <p>Recorded transactions</p>
                     </article>
 
-
-                    <!-- Transport -->
-                    <article class="card" tabindex="0">
-
-                        <div class="card-top">
-                            <div class="card-icon">🚌</div>
-                            <span class="status">On Track</span>
-                        </div>
-
-                        <div class="card-content">
-                            <h3>Transport</h3>
-                            <p class="amount">KSh 4,200</p>
-                            <p>Spent this month</p>
-                        </div>
-
-                        <div class="card-footer">
-                            <span>Budget: KSh 7,000</span>
-                            <strong>60%</strong>
-                        </div>
-
+                    <article class="card">
+                        <div class="card-top"><span class="card-icon">🚌</span><span class="status">Transport</span></div>
+                        <h3>Transport</h3>
+                        <p class="amount" id="transport-total">KSh 0</p>
+                        <p>Recorded transactions</p>
                     </article>
 
-
-                    <!-- Rent -->
-                    <article class="card" tabindex="0">
-
-                        <div class="card-top">
-                            <div class="card-icon">🏠</div>
-                            <span class="status warning">High</span>
-                        </div>
-
-                        <div class="card-content">
-                            <h3>Rent</h3>
-                            <p class="amount">KSh 15,000</p>
-                            <p>Spent this month</p>
-                        </div>
-
-                        <div class="card-footer">
-                            <span>Budget: KSh 15,000</span>
-                            <strong>100%</strong>
-                        </div>
-
+                    <article class="card">
+                        <div class="card-top"><span class="card-icon">🏠</span><span class="status">Rent</span></div>
+                        <h3>Rent</h3>
+                        <p class="amount" id="rent-total">KSh 0</p>
+                        <p>Recorded transactions</p>
                     </article>
 
-
-                    <!-- Entertainment -->
-                    <article class="card" tabindex="0">
-
-                        <div class="card-top">
-                            <div class="card-icon">🎬</div>
-                            <span class="status">On Track</span>
-                        </div>
-
-                        <div class="card-content">
-                            <h3>Entertainment</h3>
-                            <p class="amount">KSh 2,800</p>
-                            <p>Spent this month</p>
-                        </div>
-
-                        <div class="card-footer">
-                            <span>Budget: KSh 5,000</span>
-                            <strong>56%</strong>
-                        </div>
-
+                    <article class="card">
+                        <div class="card-top"><span class="card-icon">🎬</span><span class="status">Entertainment</span></div>
+                        <h3>Entertainment</h3>
+                        <p class="amount" id="entertainment-total">KSh 0</p>
+                        <p>Recorded transactions</p>
                     </article>
 
-
-                    <!-- Savings -->
-                    <article class="card" tabindex="0">
-
-                        <div class="card-top">
-                            <div class="card-icon">💰</div>
-                            <span class="status success">Excellent</span>
-                        </div>
-
-                        <div class="card-content">
-                            <h3>Savings</h3>
-                            <p class="amount">KSh 10,000</p>
-                            <p>Saved this month</p>
-                        </div>
-
-                        <div class="card-footer">
-                            <span>Goal: KSh 12,000</span>
-                            <strong>83%</strong>
-                        </div>
-
+                    <article class="card" id="savings">
+                        <div class="card-top"><span class="card-icon">💰</span><span class="status success">Savings</span></div>
+                        <h3>Savings</h3>
+                        <p class="amount" id="savings-total">KSh 0</p>
+                        <p>Recorded savings</p>
                     </article>
 
-
-                    <!-- Utilities -->
-                    <article class="card" tabindex="0">
-
-                        <div class="card-top">
-                            <div class="card-icon">💡</div>
-                            <span class="status">On Track</span>
-                        </div>
-
-                        <div class="card-content">
-                            <h3>Utilities</h3>
-                            <p class="amount">KSh 3,600</p>
-                            <p>Spent this month</p>
-                        </div>
-
-                        <div class="card-footer">
-                            <span>Budget: KSh 5,000</span>
-                            <strong>72%</strong>
-                        </div>
-
+                    <article class="card">
+                        <div class="card-top"><span class="card-icon">💡</span><span class="status">Utilities</span></div>
+                        <h3>Utilities</h3>
+                        <p class="amount" id="utilities-total">KSh 0</p>
+                        <p>Recorded transactions</p>
                     </article>
-
                 </div>
-
             </section>
 
+            <section class="expense-panel" id="expenses">
+                <h2>Add a New Transaction</h2>
+                <p class="muted">Enter a transaction to update your dashboard.</p>
 
-            <!-- Recent Activity -->
-            <section class="activity">
-
-                <div>
-                    <h2>Recent Activity</h2>
-                    <p>Your latest financial updates</p>
-                </div>
-
-                <div class="activity-list">
-
-                    <div class="activity-item">
-                        <span>🍽️</span>
-
-                        <div>
-                            <strong>Lunch</strong>
-                            <small>Food • Today</small>
+                <form id="expense-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="expense-name">Transaction Name</label>
+                            <input id="expense-name" name="expenseName"
+                                   type="text" maxlength="100"
+                                   placeholder="e.g. Groceries" required>
                         </div>
 
-                        <strong>- KSh 500</strong>
-                    </div>
-
-
-                    <div class="activity-item">
-                        <span>🚌</span>
-
-                        <div>
-                            <strong>Bus Fare</strong>
-                            <small>Transport • Today</small>
+                        <div class="form-group">
+                            <label for="expense-amount">Amount (KSh)</label>
+                            <input id="expense-amount" name="amount"
+                                   type="number" min="0.01" step="0.01"
+                                   placeholder="e.g. 500" required>
                         </div>
 
-                        <strong>- KSh 200</strong>
-                    </div>
-
-
-                    <div class="activity-item">
-                        <span>💰</span>
-
-                        <div>
-                            <strong>Monthly Savings</strong>
-                            <small>Savings • Yesterday</small>
+                        <div class="form-group">
+                            <label for="expense-category">Category</label>
+                            <select id="expense-category" name="category" required>
+                                <option value="">Choose a category</option>
+                                <option value="Food">Food</option>
+                                <option value="Transport">Transport</option>
+                                <option value="Rent">Rent</option>
+                                <option value="Entertainment">Entertainment</option>
+                                <option value="Savings">Savings</option>
+                                <option value="Utilities">Utilities</option>
+                            </select>
                         </div>
-
-                        <strong>+ KSh 2,000</strong>
                     </div>
 
-                </div>
-
+                    <button type="submit">Add Transaction</button>
+                    <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
+                </form>
             </section>
 
+            <section class="summary-grid" aria-label="Budget summary">
+                <article class="summary-card">
+                    <h2>Total Expenses</h2>
+                    <p class="summary-amount" id="total-expenses">KSh 0</p>
+                </article>
+
+                <article class="summary-card">
+                    <h2>Monthly Budget</h2>
+                    <p class="summary-amount">KSh 46,000</p>
+                </article>
+
+                <article class="summary-card">
+                    <h2>Remaining Budget</h2>
+                    <p class="summary-amount" id="remaining-budget">KSh 46,000</p>
+                </article>
+            </section>
+
+            <section class="expense-panel">
+                <h2>Transaction List</h2>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Transaction</th>
+                                <th>Category</th>
+                                <th>Amount</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="expense-list">
+                            <tr>
+                                <td colspan="4">No transactions added yet.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="activity-panel" id="activity">
+                <h2>Recent Activity</h2>
+                <p class="muted">Your transactions appear in the list above.</p>
+            </section>
+
+            <footer>
+                <p>SpendWise — Manage your money with confidence.</p>
+            </footer>
         </main>
-
     </div>
-
 </body>
 </html>
