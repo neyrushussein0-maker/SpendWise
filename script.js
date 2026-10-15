@@ -1,4 +1,3 @@
-
 "use strict";
 
 // Monthly budget in Kenyan shillings
